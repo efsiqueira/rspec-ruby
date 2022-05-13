@@ -13,7 +13,33 @@
 # it.
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+require_relative '../helpers/composicao_helper'
 RSpec.configure do |config|
+
+  # config.before(:suite) do
+  #   puts ">>>>>>>>>> ANTES de TODA a suíte de testes"
+  # end
+  
+  # config.after(:suite) do
+  #   puts ">>>>>>>>>> DEPOIS de TODA a suíte de testes"
+  # end
+
+  # config.before(:context) do
+  #   puts ">>>>>>>>>> ANTES de TODOS os testes"
+  # end
+
+  # config.after(:all) do
+  #   puts ">>>>>>>>>> DEPOIS de TODOS os testes"
+  # end
+
+  # ComposicaoHelper Methods de Módulo
+  config.include ComposicaoHelper
+
+  # Falhas agregadas
+  config.define_derived_metadata do |meta|
+    meta[:aggregate_failures] = true
+  end
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
