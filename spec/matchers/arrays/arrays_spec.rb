@@ -1,6 +1,9 @@
 RSpec::Matchers.define_negated_matcher :exclude, :include # Negativando matchers
 
-describe Array.new([1,2,3]) do
+# collection: true (collection foi o nome escolhido, mas pode ser outro qualquer)
+# para setar a tag, possível colocar como: 
+# :collection | type: 'collection'
+describe Array.new([1,2,3]), "Array", collection: true do
   it '#include' do
     expect(subject).to include(2, 1)
     expect(subject).to exclude(4, 5)
